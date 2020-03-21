@@ -1,0 +1,34 @@
+## Description:
+# You have an array of numbers.
+# Your task is to sort ascending odd numbers but even numbers must be on their places.
+
+# Zero isn't an odd number and you don't need to move it. If you have an empty array, you need to return it.
+
+# Example
+
+# sort_array([5, 3, 2, 8, 1, 4]) == [1, 3, 2, 8, 5, 4]
+
+def sort_array(source_array):
+    idx = []
+    val = []
+    idx_odd = []
+    val_odd = []
+    idx_evn = []
+    val_evn = []
+    for idx, val in enumerate(source_array):
+        if val %2 != 0:
+            idx_odd.append(idx)
+            val_odd.append(val)
+        else :
+            idx_evn.append(idx)
+            val_evn.append(val)
+    val_odd.sort()
+    
+    idxtoval = [i for i in range(len(source_array))]
+    for idx, val in zip(idx_odd, val_odd):
+        idxtoval[idx] = val
+    for idx, val in zip(idx_evn, val_evn):
+        idxtoval[idx] = val
+        
+    return idxtoval
+sort_array([5, 3, 2, 8, 1, 4])
