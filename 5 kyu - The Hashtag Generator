@@ -1,0 +1,37 @@
+## The marketing team is spending way too much time typing in hashtags.
+## Let's help them with our own Hashtag Generator!
+
+# Here's the deal:
+
+# It must start with a hashtag (#).
+# All words must have their first letter capitalized.
+# If the final result is longer than 140 chars it must return false.
+# If the input or the result is an empty string it must return false.
+
+def generate_hashtag(s):
+    
+    space = ''
+    hashtag = '#'
+    max = 140
+    word1 = s.title()
+    word2 = word1.split()
+    word3 = space.join(word2)
+    word4 = hashtag+word3
+    
+    if s == "" :
+        return False
+
+    elif len(word4) < max :
+        return word4
+    
+    else :
+        return False
+print(generate_hashtag(''))
+print(generate_hashtag('Do We have A Hashtag')[0])
+print(generate_hashtag('Codewars'))
+print(generate_hashtag('Codewars      '))
+print(generate_hashtag('Codewars Is Nice'))
+print(generate_hashtag('codewars is nice'))
+print(generate_hashtag('c i n'))
+print(generate_hashtag('codewars  is  nice'))
+print(generate_hashtag('Looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong Cat'))
