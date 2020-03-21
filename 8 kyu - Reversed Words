@@ -1,0 +1,16 @@
+## Description:
+# Complete the solution so that it reverses all of the words within the string passed in.
+
+# Example:
+
+# reverseWords("The greatest victory is that which requires no battle")
+# // should return "battle no requires which that is victory greatest The"
+
+def reverseWords(str):
+
+    str2 = str.split()
+    str3 = str2[::-1]
+    return ' '.join(str3)
+    
+print(reverseWords("hello world!"))
+print(reverseWords("The greatest victory is that which requires no battle"))
