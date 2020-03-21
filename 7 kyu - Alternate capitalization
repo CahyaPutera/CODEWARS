@@ -1,0 +1,39 @@
+## Given a string, capitalize the letters that occupy even indexes and odd indexes separately, and return as shown below. 
+## Index 0 will be considered even.
+
+# For example, capitalize("abcdef") = ['AbCdEf', 'aBcDeF']. See test cases for more examples.
+
+# The input will be a lowercase string with no spaces.
+
+# Good luck!
+
+def capitalize(s):
+    s = list(s)
+    li = []
+    stri = ''
+    n = 1
+    first = False
+    time = 0
+    while(time < 2):
+        if first == False:
+            for e in s:
+                if n % 2 != 0:
+                    stri += e.upper()
+                else:
+                    stri += e
+                n+=1
+            first = True
+            n = 1
+            li.append(stri)
+            stri = ''
+            time += 1
+        else:
+            for e in s:
+                if n % 2 == 0:
+                    stri += e.upper()
+                else:
+                    stri += e
+                n+=1
+            li.append(stri)
+            time += 1
+    return li
