@@ -1,0 +1,76 @@
+## Description :
+
+# Given the triangle of consecutive odd numbers:
+
+#              1
+#           3     5
+#        7     9    11
+#    13    15    17    19
+# 21    23    25    27    29
+# ...
+# Calculate the row sums of this triangle from the row index (starting at index 1) e.g.:
+
+# row_sum_odd_numbers(1); # 1
+# row_sum_odd_numbers(2); # 3 + 5 = 8
+
+# 1. Short but sweet ver.
+
+def row_sum_odd_numbers(n) :
+    return n * n * n
+
+print(row_sum_odd_numbers(2))
+print(row_sum_odd_numbers(10))
+print(row_sum_odd_numbers(13))
+
+# or 
+
+def row_sum_odd_numbers(n):
+    return n ** 3
+    
+print(row_sum_odd_numbers(2))
+print(row_sum_odd_numbers(10))
+print(row_sum_odd_numbers(13))
+
+# 2. Long and improved ver.
+
+def row_sum_odd_numbers(n) :
+    numb  = []
+    value = 1
+
+    for i in range(1, n+1) :
+        temp = []
+        for j in range(i) :
+            temp.append(value)
+            value += 2
+        numb.append(temp)
+    print(numb)
+    
+    #Triangle
+    z = ''
+    for num, i in zip(numb, range(len(numb))) :
+        for j in range(n-i) :
+            z += '  '
+        for k in num :
+            
+            z += str(k).ljust(4, ' ')
+        z += '\n' 
+    print(z)
+
+    sum_row = ''
+    
+    for num in numb[-1]:
+        if num == numb[-1][-1]:
+            sum_row += str(num)
+        else:    
+            sum_row += str(num)
+            sum_row += ' + '
+    sum_row += ' = {}'.format(sum(numb[-1]))       
+    
+    if sum(numb[-1]) == 1:
+        print(1)
+    else:
+        print(sum_row)    
+
+row_sum_odd_numbers(2)
+row_sum_odd_numbers(10)
+row_sum_odd_numbers(13)
