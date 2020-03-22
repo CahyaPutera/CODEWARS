@@ -1,0 +1,57 @@
+## Description:
+# Build Tower
+# Build Tower by the following given argument:
+# number of floors (integer and always greater than 0).
+
+# Tower block is represented as *
+
+# for example, a tower of 3 floors looks like below :
+
+# [
+#   '  *  ', 
+#   ' *** ', 
+#   '*****'
+# ]
+
+# and a tower of 6 floors looks like below :
+
+# [
+#   '     *     ', 
+#   '    ***    ', 
+#   '   *****   ', 
+#   '  *******  ', 
+#   ' ********* ', 
+#   '***********'
+# ]
+
+def tower_builder(n_floors):
+
+    tower = []
+    spacing = n_floors - 1
+    stars = 1
+    
+    for i in range(0, n_floors):
+        tower.append(' ' * spacing + '*' * stars + spacing * ' ')
+        stars = stars + 2
+        spacing = spacing - 1
+        
+    return tower
+tower_builder(2)
+tower_builder(3)
+
+# or 
+
+def tower_builder(n_floors):
+    rows = n_floors
+    tower = []
+    floor = ''
+
+    for i in range(rows):
+        star = '*' * (i*2 + 1)
+        space = ' ' * (rows - i - 1)
+        floor = space + star + space
+        tower.append(floor)
+        
+    return tower
+tower_builder(2)
+tower_builder(3)
